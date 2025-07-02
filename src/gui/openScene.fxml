@@ -22,5 +22,6 @@
             <Font name="Lucida Fax Regular" size="16.0" />
          </font>
       </Button>
+      <Button layoutX="443.0" layoutY="14.0" mnemonicParsing="false" onAction="#exit" styleClass="small-button" text="Exit" />
    </children>
 </AnchorPane>

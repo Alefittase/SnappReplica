@@ -1,12 +1,18 @@
 package gui;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.Driver;
+import repository.DriverRepository;
+import repository.FileDataHandler;
+import repository.UserRepository;
+
 import java.io.IOException;
 
 public class App extends Application {
@@ -26,6 +32,17 @@ public class App extends Application {
         //set scene and show the stage to open the app
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void initializeSystem(){
+        FileDataHandler.loadInitialData();
+        if (UserRepository.getAllDrivers().isEmpty()) {
+            DriverRepository.initializeDrivers();
+            for (Driver driver : DriverRepository.getInitialDrivers()) {
+                UserRepository.addDriver(driver);
+            }
+            FileDataHandler.saveDriverData();
+        }
     }
 
     public static void main(String[] args) {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" style="-fx-background-color: #5fc9ff;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
+   <children>
+      <Text fill="WHITE" layoutX="181.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="InsTax!" textAlignment="CENTER">
+         <font>
+            <Font name="Bernard MT Condensed" size="50.0" />
+         </font>
+      </Text>
+      <Label fx:id="nameLabel" layoutX="14.0" layoutY="13.0" prefHeight="59.0" prefWidth="138.0" textFill="#00138e" wrapText="true">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="371.0" layoutY="30.0" mnemonicParsing="false" onAction="#logout" styleClass="small-button" text="Logout" />
+      <Button layoutX="443.0" layoutY="30.0" mnemonicParsing="false" onAction="#exit" styleClass="small-button" text="Exit" />
+      <AnchorPane layoutX="16.0" layoutY="134.0" prefHeight="107.0" prefWidth="426.0" styleClass="boxes">
+         <children>
+            <Text layoutX="135.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trip Status: Requested" textAlignment="CENTER" wrappingWidth="178.93671417236328">
+               <font>
+                  <Font name="Perpetua Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="tripPrice" layoutX="324.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="110.39999999999986">
+               <font>
+                  <Font name="Perpetua Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text id="driverName" fx:id="tripId" layoutX="30.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="385.33667755126953">
+               <font>
+                  <Font name="Perpetua Bold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Button layoutX="197.0" layoutY="371.0" mnemonicParsing="false" text="Cancel Trip" />
+      <Button layoutX="202.0" layoutY="314.0" mnemonicParsing="false" onAction="#startTrip" text="Start Trip" />
+      <Button layoutX="194.0" layoutY="431.0" mnemonicParsing="false" onAction="#tripHistory" text="Trip History" />
+   </children>
+</AnchorPane>

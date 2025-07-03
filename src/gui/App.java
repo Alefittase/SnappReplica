@@ -20,9 +20,8 @@ public class App extends Application { //Application class is used for making GU
         stage.setResizable(false); //makes the stage not resizable
         //set app title and icon
         stage.setTitle("InsTax _ Your Instant Taxi App");
-        Image icon = new Image("file:src/gui/img/appIcon.png");
+        Image icon = new Image(getClass().getResourceAsStream("/gui/img/appIcon.png"));
         stage.getIcons().add(icon);
-
         //initializes data
         Controller controller = loader.getController();
         controller.initializeSystem();

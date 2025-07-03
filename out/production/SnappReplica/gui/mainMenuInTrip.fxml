@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -13,16 +12,11 @@
             <Font name="Bernard MT Condensed" size="50.0" />
          </font>
       </Text>
-      <Label fx:id="nameLabel" layoutX="14.0" layoutY="13.0" prefHeight="59.0" prefWidth="138.0" textFill="#00138e" wrapText="true">
-         <font>
-            <Font name="Cambria" size="18.0" />
-         </font>
-      </Label>
       <Button layoutX="371.0" layoutY="30.0" mnemonicParsing="false" onAction="#logout" styleClass="small-button" text="Logout" />
       <Button layoutX="443.0" layoutY="30.0" mnemonicParsing="false" onAction="#exit" styleClass="small-button" text="Exit" />
       <AnchorPane layoutX="28.0" layoutY="136.0" prefHeight="107.0" prefWidth="426.0" styleClass="boxes">
          <children>
-            <Text layoutX="132.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trip Status: In Progress">
+            <Text layoutX="132.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trip Status: In Progress">
                <font>
                   <Font name="Perpetua Bold" size="18.0" />
                </font>
@@ -32,20 +26,30 @@
                   <Font name="Perpetua Bold" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="driverName" layoutX="97.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="247.73676300048828">
+            <Text fx:id="driverName" layoutX="97.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="247.73676300048828">
                <font>
                   <Font name="Perpetua Bold" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="driverVehicle" layoutX="97.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="247.73676300048828">
+            <Text fx:id="driverVehicle" layoutX="97.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="247.73676300048828">
+               <font>
+                  <Font name="Perpetua Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="tripCords" layoutX="97.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="247.73676300048828">
                <font>
                   <Font name="Perpetua Bold" size="18.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <Button layoutX="196.0" layoutY="371.0" mnemonicParsing="false" text="Cancel Trip" />
-      <Button layoutX="205.0" layoutY="314.0" mnemonicParsing="false" text="End Trip" />
-      <Button layoutX="193.0" layoutY="430.0" mnemonicParsing="false" onAction="#tripHistory" text="Trip History" />
+      <Button layoutX="196.0" layoutY="371.0" mnemonicParsing="false" onAction="#cancelTrip" text="Cancel Trip" />
+      <Button layoutX="205.0" layoutY="314.0" mnemonicParsing="false" onAction="#endTrip" text="End Trip" />
+      <Button layoutX="193.0" layoutY="430.0" mnemonicParsing="false" onAction="#switchToTripHistory" text="Trip History" />
+      <Text fx:id="nameLabel" layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="137.5244140625">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

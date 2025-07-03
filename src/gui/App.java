@@ -19,7 +19,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //sets a scene and a root node for the scene
-        Parent root = FXMLLoader.load(getClass().getResource("openScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("openScene.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root, 500, 700, Color.rgb(95, 201, 255));
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         //set stage details
@@ -29,20 +30,13 @@ public class App extends Application {
         Image icon = new Image("file:src/gui/img/appIcon.png");
         stage.getIcons().add(icon);
 
+        //initializes data
+        Controller controller = loader.getController();
+        controller.initializeSystem();
+
         //set scene and show the stage to open the app
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void initializeSystem(){
-        FileDataHandler.loadInitialData();
-        if (UserRepository.getAllDrivers().isEmpty()) {
-            DriverRepository.initializeDrivers();
-            for (Driver driver : DriverRepository.getInitialDrivers()) {
-                UserRepository.addDriver(driver);
-            }
-            FileDataHandler.saveDriverData();
-        }
     }
 
     public static void main(String[] args) {

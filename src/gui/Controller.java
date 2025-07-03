@@ -15,25 +15,77 @@ import javafx.stage.Stage;
 import model.*;
 import service.*;
 import repository.*;
-
 import java.io.IOException;
 
-public class Controller {
+public class Controller { //handles the actions done in the application
+    //creating the variables
     @FXML
     private Stage stage;
     @FXML
     private Scene scene;
     @FXML
     private Parent root;
-
     @FXML
-    private Text nameLabel; //might be used in session
+    private Text nameLabel;
+    @FXML
+    private Text tripPrice;
+    @FXML
+    private Text tripCords;
+    @FXML
+    private Text driverName;
+    @FXML
+    private Text driverVehicle;
+    @FXML
+    private TextArea tripHistoryList;
+    @FXML
+    private TextField loginUsername;
+    @FXML
+    private PasswordField loginPassword;
+    @FXML
+    private Text loginError;
+    @FXML
+    private TextField registerUsername;
+    @FXML
+    private PasswordField registerPassword;
+    @FXML
+    private Text registerError;
+    @FXML
+    private TextField startX;
+    @FXML
+    private TextField startY;
+    @FXML
+    private TextField endX;
+    @FXML
+    private TextField endY;
+    @FXML
+    private Text requestError;
+    //setter methods
     @FXML
     public void setNameLabel(String s) {
         nameLabel.setText(s);
     }
-
-    public void initializeSystem(){ //might not need multi threading
+    @FXML
+    private void setTripPrice(String s) {
+        tripPrice.setText(s);
+    }
+    @FXML
+    private void setTripCords(String s) {
+        tripCords.setText(s);
+    }
+    @FXML
+    private void setDriverName(String s) {
+        driverName.setText(s);
+    }
+    @FXML
+    private void setDriverVehicle(String s) {
+        driverVehicle.setText(s);
+    }
+    @FXML
+    public void appendTripHistoryListText(String s) {
+        tripHistoryList.appendText(s);
+    }
+    //initializing the data using a new thread
+    public void initializeSystem(){
         Thread initThread = new Thread(()->{
             FileDataHandler.loadInitialData();
             if (UserRepository.getAllDrivers().isEmpty()) {
@@ -43,14 +95,10 @@ public class Controller {
                 }
                 FileDataHandler.saveDriverData();
             }
-            Platform.runLater(()->{
-                //
-            });
         });
-
         initThread.start();
     }
-
+    //switches the scene to a new fxml file and handles loading the data into the scene
     @FXML
     public void switchToLoginScene(ActionEvent Button) throws IOException {
         root = FXMLLoader.load(getClass().getResource("loginScene.fxml"));
@@ -59,7 +107,6 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     public void switchToRegisterScene(ActionEvent Button) throws IOException {
         root = FXMLLoader.load(getClass().getResource("registerScene.fxml"));
@@ -68,7 +115,6 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     public void switchToOpenScene(ActionEvent Button) throws IOException {
         root = FXMLLoader.load(getClass().getResource("openScene.fxml"));
@@ -77,103 +123,60 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     public void switchToMMNoTrip(ActionEvent Button) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenuNoTrip.fxml"));
         root = loader.load();
         Controller controller = loader.getController();
-
         controller.setNameLabel("Hello "+Session.getSession().getCurrentUser().getName());
-
         stage = (Stage)((Node)Button.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    private Text tripPrice;
-    @FXML
-    private void setTripPrice(String s) {
-        tripPrice.setText(s);
-    }
-    @FXML
-    private Text tripCords;
-    @FXML
-    private void setTripCords(String s) {
-        tripCords.setText(s);
-    }
-    @FXML
-    private Text driverName;
-    @FXML
-    private void setDriverName(String s) {
-        driverName.setText(s);
-    }
-    @FXML
-    private Text driverVehicle;
-    @FXML
-    private void setDriverVehicle(String s) {
-        driverVehicle.setText(s);
     }
     @FXML
     public void switchToMMRequested(ActionEvent Button) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenuRequested.fxml"));
         root = loader.load();
         Controller controller = loader.getController();
-
         controller.setNameLabel("Hello "+Session.getSession().getCurrentUser().getName());
         controller.setTripPrice("("+Session.getSession().getActiveTrip().getFare()+"$)");
         controller.setTripCords("Origin: "+Session.getSession().getActiveTrip().getStart()+", Destination: "+Session.getSession().getActiveTrip().getEnd());
         controller.setDriverName("Driver: "+Session.getSession().getActiveTrip().getDriver().getName());
         controller.setDriverVehicle("Vehicle: "+Session.getSession().getActiveTrip().getDriver().getVehicle());
-
         stage = (Stage)((Node)Button.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     public void switchToMMInTrip(ActionEvent Button) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenuInTrip.fxml"));
         root = loader.load();
         Controller controller = loader.getController();
-
         controller.setNameLabel("Hello "+Session.getSession().getCurrentUser().getName());
         controller.setTripPrice("("+Session.getSession().getActiveTrip().getFare()+"$)");
         controller.setTripCords("Destination: "+Session.getSession().getActiveTrip().getEnd());
         controller.setDriverName("Driver: "+Session.getSession().getActiveTrip().getDriver().getName());
         controller.setDriverVehicle("Vehicle: "+Session.getSession().getActiveTrip().getDriver().getVehicle());
-
         stage = (Stage)((Node)Button.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    private TextArea tripHistoryList;
-    @FXML
-    public void appendTripHistoryListText(String s) {
-        tripHistoryList.appendText(s);
     }
     @FXML
     public void switchToTripHistory(ActionEvent Button) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tripHistory.fxml"));
         root = loader.load();
         Controller controller = loader.getController();
-
         for (Trip trip : TripService.getTripHistory(Session.getSession().getCurrentUser())) {
             controller.appendTripHistoryListText("["+trip.getId()+"] "+trip.getStart()+" -> "+trip.getEnd()+" ("+trip.getFare()+"$) - "+trip.getStatusString()+"\n");
         }
-
         stage = (Stage)((Node)Button.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     public void switchToRequestTripScene(ActionEvent Button) throws IOException {
         root = FXMLLoader.load(getClass().getResource("requestTripScene.fxml"));
@@ -182,13 +185,7 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
-
-    @FXML
-    private TextField loginUsername;
-    @FXML
-    private PasswordField loginPassword;
-    @FXML
-    private Text loginError;
+    //handles authentication
     @FXML
     public void login(ActionEvent Button) throws IOException {
         Session.getSession().setCurrentUser(UserService.login(loginUsername.getText(), loginPassword.getText()));
@@ -202,13 +199,6 @@ public class Controller {
             else loginError.setText("Error Logging In");
         }
     }
-
-    @FXML
-    private TextField registerUsername;
-    @FXML
-    private PasswordField registerPassword;
-    @FXML
-    private Text registerError;
     @FXML
     public void register(ActionEvent Button) throws IOException {
         String error = UserService.registerPassenger(registerUsername.getText(), registerPassword.getText());
@@ -218,18 +208,7 @@ public class Controller {
             registerError.setText(error);
         }
     }
-
-
-    @FXML
-    private TextField startX;
-    @FXML
-    private TextField startY;
-    @FXML
-    private TextField endX;
-    @FXML
-    private TextField endY;
-    @FXML
-    private Text requestError;
+    //handles trip service
     @FXML
     public void requestTrip(ActionEvent Button) throws IOException {
         if (!(startX.getText().matches("-?\\d+(\\.\\d+)?")) ||
@@ -255,14 +234,13 @@ public class Controller {
             }
         }
     }
-
     @FXML
     public void startTrip(ActionEvent Button) throws IOException {
         TripService.startTrip(Session.getSession().getCurrentUser());
         FileDataHandler.saveTripData();
         switchToMMInTrip(Button);
     }
-
+    @FXML
     public void cancelTrip(ActionEvent Button) throws IOException {
         Driver driver = Session.getSession().getActiveTrip().getDriver();
         TripService.cancelTrip(Session.getSession().getCurrentUser());
@@ -270,7 +248,7 @@ public class Controller {
         FileDataHandler.saveDriver(driver);
         switchToMMNoTrip(Button);
     }
-
+    @FXML
     public void endTrip(ActionEvent Button) throws IOException {
         Driver driver = Session.getSession().getActiveTrip().getDriver();
         TripService.endTrip(Session.getSession().getCurrentUser());
@@ -278,8 +256,9 @@ public class Controller {
         FileDataHandler.saveDriver(driver);
         switchToMMNoTrip(Button);
     }
-
-    public void backFromTripHistory(ActionEvent Button) throws IOException { //this method has been changed from the Main.java equivalent
+    //chooses the correct scene when going back from trip history
+    @FXML
+    public void backFromTripHistory(ActionEvent Button) throws IOException {
         if(Session.getSession().getActiveTrip() == null) {
             switchToMMNoTrip(Button);
         } else {
@@ -291,13 +270,12 @@ public class Controller {
             }
         }
     }
-
+    //handles logging out and exiting
     @FXML
     public void logout(ActionEvent Button) throws IOException {
         Session.getSession().setCurrentUser(null);
         switchToOpenScene(Button);
     }
-
     @FXML
     public void exit(ActionEvent Button) throws IOException {
         FileDataHandler.saveAllData();
@@ -306,5 +284,4 @@ public class Controller {
         Platform.exit();
         System.exit(0);
     }
-
 }

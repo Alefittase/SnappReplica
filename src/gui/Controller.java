@@ -59,6 +59,8 @@ public class Controller { //handles the actions done in the application
     private TextField endY;
     @FXML
     private Text requestError;
+    @FXML
+    private AnchorPane rootNode;
     //setter methods
     @FXML
     public void setNameLabel(String s) {
@@ -84,8 +86,9 @@ public class Controller { //handles the actions done in the application
     public void appendTripHistoryListText(String s) {
         tripHistoryList.appendText(s);
     }
-    //initializing the data using a new thread
+    //initializing the data and program
     public void initializeSystem(){
+        //using a new thread, loads initial data
         Thread initThread = new Thread(()->{
             FileDataHandler.loadInitialData();
             if (UserRepository.getAllDrivers().isEmpty()) {
@@ -97,6 +100,13 @@ public class Controller { //handles the actions done in the application
             }
         });
         initThread.start();
+        //handles the window close (x) button to save before closing
+        Platform.runLater(() -> {
+            Stage stage = (Stage) rootNode.getScene().getWindow();
+            stage.setOnCloseRequest(event -> {
+                FileDataHandler.saveAllData();
+            });
+        });
     }
     //switches the scene to a new fxml file and handles loading the data into the scene
     @FXML
@@ -278,7 +288,6 @@ public class Controller { //handles the actions done in the application
     }
     @FXML
     public void exit(ActionEvent Button) throws IOException {
-        FileDataHandler.saveAllData();
         Stage stage = (Stage) ((Node) Button.getSource()).getScene().getWindow();
         stage.close();
         Platform.exit();

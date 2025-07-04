@@ -22,12 +22,12 @@ public class App extends Application { //Application class is used for making GU
         stage.setTitle("InsTax! _ Your Instant Taxi App");
         Image icon = new Image(getClass().getResourceAsStream("/gui/img/appIcon.png"));
         stage.getIcons().add(icon);
+        //sets the scene
+        stage.setScene(scene);
         //initializes data
         Controller controller = loader.getController();
         controller.initializeSystem();
-
-        //set scene and show the stage to open the app
-        stage.setScene(scene);
+        //shows the window
         stage.show();
     }
 

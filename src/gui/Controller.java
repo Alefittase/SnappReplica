@@ -28,7 +28,7 @@ public class Controller { //handles the actions done in the application
     @FXML
     private Text nameLabel;
     @FXML
-    private Text tripPrice;
+    private Text tripStatusAndPrice;
     @FXML
     private Text tripCords;
     @FXML
@@ -65,8 +65,8 @@ public class Controller { //handles the actions done in the application
         nameLabel.setText(s);
     }
     @FXML
-    private void setTripPrice(String s) {
-        tripPrice.setText(s);
+    private void setTripStatusAndPrice(String s) {
+        tripStatusAndPrice.setText(s);
     }
     @FXML
     private void setTripCords(String s) {
@@ -140,7 +140,7 @@ public class Controller { //handles the actions done in the application
         root = loader.load();
         Controller controller = loader.getController();
         controller.setNameLabel("Hello "+Session.getSession().getCurrentUser().getName());
-        controller.setTripPrice("("+Session.getSession().getActiveTrip().getFare()+"$)");
+        controller.setTripStatusAndPrice("Trip Status: Requested  ("+Session.getSession().getActiveTrip().getFare()+"$)");
         controller.setTripCords("Origin: "+Session.getSession().getActiveTrip().getStart()+", Destination: "+Session.getSession().getActiveTrip().getEnd());
         controller.setDriverName("Driver: "+Session.getSession().getActiveTrip().getDriver().getName());
         controller.setDriverVehicle("Vehicle: "+Session.getSession().getActiveTrip().getDriver().getVehicle());
@@ -155,7 +155,7 @@ public class Controller { //handles the actions done in the application
         root = loader.load();
         Controller controller = loader.getController();
         controller.setNameLabel("Hello "+Session.getSession().getCurrentUser().getName());
-        controller.setTripPrice("("+Session.getSession().getActiveTrip().getFare()+"$)");
+        controller.setTripStatusAndPrice("Trip Status: In Progress  ("+Session.getSession().getActiveTrip().getFare()+"$)");
         controller.setTripCords("Destination: "+Session.getSession().getActiveTrip().getEnd());
         controller.setDriverName("Driver: "+Session.getSession().getActiveTrip().getDriver().getName());
         controller.setDriverVehicle("Vehicle: "+Session.getSession().getActiveTrip().getDriver().getVehicle());

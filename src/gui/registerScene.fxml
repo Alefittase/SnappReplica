@@ -21,8 +21,8 @@
                   <Font name="MV Boli" size="16.0" />
                </font>
             </Button>
-            <PasswordField fx:id="registerPassword" layoutX="49.0" layoutY="74.0" prefHeight="26.0" prefWidth="214.0" promptText="Enter Password" />
             <TextField fx:id="registerUsername" layoutX="49.0" layoutY="28.0" prefHeight="26.0" prefWidth="214.0" promptText="Enter Username" />
+            <PasswordField fx:id="registerPassword" layoutX="49.0" layoutY="74.0" prefHeight="26.0" prefWidth="214.0" promptText="Enter Password" />
             <Text fill="RED" layoutX="24.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="250.59998321533203" />
          </children>
       </AnchorPane>

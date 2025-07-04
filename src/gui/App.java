@@ -19,7 +19,7 @@ public class App extends Application { //Application class is used for making GU
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm()); //connects the CSS stylesheet to the application
         stage.setResizable(false); //makes the stage not resizable
         //set app title and icon
-        stage.setTitle("InsTax _ Your Instant Taxi App");
+        stage.setTitle("InsTax! _ Your Instant Taxi App");
         Image icon = new Image(getClass().getResourceAsStream("/gui/img/appIcon.png"));
         stage.getIcons().add(icon);
         //initializes data

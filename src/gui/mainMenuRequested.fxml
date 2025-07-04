@@ -14,29 +14,24 @@
       </Text>
       <Button layoutX="371.0" layoutY="30.0" mnemonicParsing="false" onAction="#logout" styleClass="small-button" text="Logout" />
       <Button layoutX="443.0" layoutY="30.0" mnemonicParsing="false" onAction="#exit" styleClass="small-button" text="Exit" />
-      <AnchorPane layoutX="16.0" layoutY="134.0" prefHeight="107.0" prefWidth="426.0" styleClass="boxes">
+      <AnchorPane layoutX="7.0" layoutY="131.0" prefHeight="107.0" prefWidth="426.0" styleClass="boxes">
          <children>
-            <Text layoutX="143.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trip Status: Requested" textAlignment="CENTER" wrappingWidth="178.93671417236328">
+            <Text fx:id="tripStatusAndPrice" layoutX="26.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trip Status: Requested" textAlignment="CENTER" wrappingWidth="426.9367446899414">
                <font>
                   <Font name="Perpetua Bold" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="tripPrice" layoutX="324.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="110.39999999999986">
+            <Text id="driverName" fx:id="tripCords" layoutX="26.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="426.9367446899414">
                <font>
                   <Font name="Perpetua Bold" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="driverName" layoutX="68.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="327.7367630004883">
+            <Text fx:id="driverName" layoutX="26.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="426.9367446899414">
                <font>
                   <Font name="Perpetua Bold" size="18.0" />
                </font>
             </Text>
-            <Text id="driverName" fx:id="tripCords" layoutX="39.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="385.33667755126953">
-               <font>
-                  <Font name="Perpetua Bold" size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="driverVehicle" layoutX="68.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="327.7367630004883">
+            <Text fx:id="driverVehicle" layoutX="26.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="426.9367446899414">
                <font>
                   <Font name="Perpetua Bold" size="18.0" />
                </font>

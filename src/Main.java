@@ -1,7 +1,10 @@
+/*
+ * this is for testing purposes only, DO NOT take as refrence!
+ */
 import java.util.Scanner;
 import model.*;
-import service.*;
 import repository.*;
+import service.*;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);

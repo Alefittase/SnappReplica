@@ -3,11 +3,12 @@ package model;
 import java.util.Objects;
 
 public class Trip {
+    //named variables for trip states
     public static final int REQUESTED = 0;
     public static final int IN_PROGRESS = 1;
     public static final int COMPLETED = 2;
     public static final int CANCELLED = 3;
-    
+    //variables
     private final String id;
     private final Passenger passenger;
     private final Driver driver;
@@ -15,7 +16,7 @@ public class Trip {
     private final Location end;
     private final double fare;
     private int status;
-
+    //constructor
     public Trip(String id, Passenger passenger, Driver driver, Location start, Location end, double fare, int status) {
         this.id = id;
         this.passenger = passenger;
@@ -25,7 +26,7 @@ public class Trip {
         this.fare = fare;
         this.status = validateStatus(status);
     }
-
+    //getter methods
     public String getId() { return id; }
     public Passenger getPassenger() { return passenger; }
     public Driver getDriver() { return driver; }
@@ -33,56 +34,49 @@ public class Trip {
     public Location getEnd() { return end; }
     public double getFare() { return fare; }
     public int getStatus() { return status; }
-
+    //returns a status if its valid and returns requested if not
     private int validateStatus(int status) {
         if (status >= REQUESTED && status <= CANCELLED) {
             return status;
         }
         return REQUESTED;
     }
-
+    //trip action methods
     public void startTrip() {
         if (status == REQUESTED) {
             status = IN_PROGRESS;
         }
     }
-
     public void completeTrip() {
         if (status == IN_PROGRESS) {
             status = COMPLETED;
         }
     }
-
     public void cancelTrip() {
         if (status == REQUESTED || status == IN_PROGRESS) {
             status = CANCELLED;
         }
     }
-
+    //trip state validation methods
     public boolean isActive() {
         return status == REQUESTED || status == IN_PROGRESS;
     }
-    
     public boolean canBeCancelled() {
         return isActive();
     }
-    
     public boolean isCompleted() {
         return status == COMPLETED;
     }
-    
     public boolean isCancelled() {
         return status == CANCELLED;
     }
-    
     public boolean isRequested() {
         return status == REQUESTED;
     }
-    
     public boolean isInProgress() {
         return status == IN_PROGRESS;
     }
-
+    //returns the trip status as a string
     public String getStatusString() {
         switch (status) {
             case REQUESTED:
@@ -105,7 +99,6 @@ public class Trip {
         Trip trip = (Trip) obj;
         return Objects.equals(id, trip.id);
     }
-
     @Override
     public String toString() {
         return String.format("Trip[%s | %s --> %s | Fare: %.2f | Status: %s]", 

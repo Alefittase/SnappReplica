@@ -4,4 +4,4 @@
 cd "$(dirname "$0")/.."
 
 # Run the application
-java --module-path "jfx/linux/lib" --add-modules javafx.controls,javafx.fxml -jar TaxiApp.jar
+java --module-path "jfx/linux/lib" --add-modules javafx.controls,javafx.fxml -jar InsTax!.jar

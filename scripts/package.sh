@@ -8,8 +8,8 @@ rm -rf dist
 mkdir -p dist/{linux,windows}
 
 # Copy common files
-cp TaxiApp.jar dist/linux/
-cp TaxiApp.jar dist/windows/
+cp InsTax!.jar dist/linux/
+cp InsTax!.jar dist/windows/
 cp -r resources dist/linux/
 cp -r resources dist/windows/
 

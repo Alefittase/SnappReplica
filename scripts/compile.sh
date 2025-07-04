@@ -26,6 +26,6 @@ javac --module-path "$JFX_PATH" --add-modules javafx.controls,javafx.fxml -d "$O
 rm -f sources.txt
 
 # Create executable JAR
-jar cvfe TaxiApp.jar gui.App -C "$OUT_DIR" .
+jar cvfe InsTax!.jar gui.App -C "$OUT_DIR" .
 
 echo "Build successful! Run with: ./run"

@@ -12,11 +12,6 @@
             <Font name="Bernard MT Condensed" size="50.0" />
          </font>
       </Text>
-      <Button layoutX="371.0" layoutY="30.0" mnemonicParsing="false" onAction="#logout" styleClass="small-button" text="Logout" />
-      <Button layoutX="443.0" layoutY="30.0" mnemonicParsing="false" onAction="#exit" styleClass="small-button" text="Exit" />
-      <Button layoutX="196.0" layoutY="371.0" mnemonicParsing="false" onAction="#cancelTrip" text="Cancel Trip" />
-      <Button layoutX="205.0" layoutY="314.0" mnemonicParsing="false" onAction="#endTrip" text="End Trip" />
-      <Button layoutX="193.0" layoutY="430.0" mnemonicParsing="false" onAction="#switchToTripHistory" text="Trip History" />
       <Text fx:id="nameLabel" layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="137.5244140625">
          <font>
             <Font name="Cambria" size="18.0" />
@@ -46,5 +41,10 @@
             </Text>
          </children>
       </AnchorPane>
+      <Button layoutX="205.0" layoutY="314.0" mnemonicParsing="false" onAction="#endTrip" text="End Trip" />
+      <Button layoutX="196.0" layoutY="371.0" mnemonicParsing="false" onAction="#cancelTrip" text="Cancel Trip" />
+      <Button layoutX="193.0" layoutY="430.0" mnemonicParsing="false" onAction="#switchToTripHistory" text="Trip History" />
+      <Button layoutX="371.0" layoutY="30.0" mnemonicParsing="false" onAction="#logout" styleClass="small-button" text="Logout" />
+      <Button layoutX="443.0" layoutY="30.0" mnemonicParsing="false" onAction="#exit" styleClass="small-button" text="Exit" />
    </children>
 </AnchorPane>

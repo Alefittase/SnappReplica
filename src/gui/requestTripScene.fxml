@@ -16,16 +16,6 @@
       </Text>
       <AnchorPane layoutX="69.0" layoutY="174.0" prefHeight="206.0" prefWidth="362.0" styleClass="boxes">
          <children>
-            <Button fx:id="requestButton" alignment="CENTER" blendMode="HARD_LIGHT" contentDisplay="CENTER" layoutX="119.0" layoutY="124.0" mnemonicParsing="false" onAction="#requestTrip" prefHeight="38.0" prefWidth="123.0" text="Request Trip" textAlignment="CENTER">
-               <font>
-                  <Font name="MV Boli" size="16.0" />
-               </font>
-            </Button>
-            <Text fx:id="requestError" fill="RED" layoutX="57.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="247.7366943359375" />
-            <TextField fx:id="startX" layoutX="208.0" layoutY="47.0" prefHeight="26.0" prefWidth="60.0" promptText="x" />
-            <TextField fx:id="startY" layoutX="268.0" layoutY="47.0" prefHeight="26.0" prefWidth="60.0" promptText="y" />
-            <TextField fx:id="endX" layoutX="208.0" layoutY="76.0" prefHeight="26.0" prefWidth="60.0" promptText="x" />
-            <TextField fx:id="endY" layoutX="268.0" layoutY="76.0" prefHeight="26.0" prefWidth="60.0" promptText="y" />
             <Label alignment="CENTER" layoutX="14.0" layoutY="51.0" prefHeight="18.0" prefWidth="190.0" text="Enter Start Location:">
                <font>
                   <Font name="Corbel" size="15.0" />
@@ -36,6 +26,16 @@
                   <Font name="Corbel" size="15.0" />
                </font>
             </Label>
+            <TextField fx:id="startX" layoutX="208.0" layoutY="47.0" prefHeight="26.0" prefWidth="60.0" promptText="x" />
+            <TextField fx:id="startY" layoutX="268.0" layoutY="47.0" prefHeight="26.0" prefWidth="60.0" promptText="y" />
+            <TextField fx:id="endX" layoutX="208.0" layoutY="76.0" prefHeight="26.0" prefWidth="60.0" promptText="x" />
+            <TextField fx:id="endY" layoutX="268.0" layoutY="76.0" prefHeight="26.0" prefWidth="60.0" promptText="y" />
+            <Button fx:id="requestButton" alignment="CENTER" blendMode="HARD_LIGHT" contentDisplay="CENTER" layoutX="119.0" layoutY="124.0" mnemonicParsing="false" onAction="#requestTrip" prefHeight="38.0" prefWidth="123.0" text="Request Trip" textAlignment="CENTER">
+               <font>
+                  <Font name="MV Boli" size="16.0" />
+               </font>
+            </Button>
+            <Text fx:id="requestError" fill="RED" layoutX="57.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="247.7366943359375" />
          </children>
       </AnchorPane>
       <Button layoutX="14.0" layoutY="30.0" mnemonicParsing="false" onAction="#switchToMMNoTrip" styleClass="small-button" text="Back" />

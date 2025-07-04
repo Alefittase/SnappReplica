@@ -12,23 +12,23 @@
             <Font name="Bernard MT Condensed" size="50.0" />
          </font>
       </Text>
-      <Button layoutX="371.0" layoutY="30.0" mnemonicParsing="false" onAction="#logout" styleClass="small-button" text="Logout" />
-      <Button layoutX="443.0" layoutY="30.0" mnemonicParsing="false" onAction="#exit" styleClass="small-button" text="Exit" />
-      <AnchorPane layoutX="36.0" layoutY="136.0" prefHeight="107.0" prefWidth="426.0" styleClass="boxes">
+      <Text fx:id="nameLabel" layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="137.5244140625">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="7.0" layoutY="131.0" prefHeight="107.0" prefWidth="426.0" styleClass="boxes">
          <children>
-            <Text layoutX="108.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trip Status: No Active Trips">
+            <Text layoutX="26.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trip Status: No Active Trips" textAlignment="CENTER" wrappingWidth="426.9367446899414">
                <font>
                   <Font name="Perpetua Bold" size="18.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <Button layoutX="195.0" layoutY="372.0" mnemonicParsing="false" onAction="#switchToTripHistory" text="Trip History" />
       <Button layoutX="192.0" layoutY="314.0" mnemonicParsing="false" onAction="#switchToRequestTripScene" text="Request Trip" />
-      <Text fx:id="nameLabel" layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="137.5244140625">
-         <font>
-            <Font name="Cambria" size="18.0" />
-         </font>
-      </Text>
+      <Button layoutX="195.0" layoutY="372.0" mnemonicParsing="false" onAction="#switchToTripHistory" text="Trip History" />
+      <Button layoutX="371.0" layoutY="30.0" mnemonicParsing="false" onAction="#logout" styleClass="small-button" text="Logout" />
+      <Button layoutX="443.0" layoutY="30.0" mnemonicParsing="false" onAction="#exit" styleClass="small-button" text="Exit" />
    </children>
 </AnchorPane>

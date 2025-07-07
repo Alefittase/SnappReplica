@@ -5,40 +5,37 @@ cd "$(dirname "$0")/.."
 
 # Clean previous distributions
 rm -rf dist
-mkdir -p dist/{linux,windows}
+mkdir -p dist/jfx/{linux,windows}
 
 # Copy common files
-cp InsTax!.jar dist/linux/
-cp InsTax!.jar dist/windows/
-cp -r resources dist/linux/
-cp -r resources dist/windows/
+cp InsTax!.jar dist/jfx/linux/
+cp InsTax!.jar dist/jfx/windows/
+cp -r resources dist/jfx/linux/
+cp -r resources dist/jfx/windows/
 
 # Copy platform-specific run scripts
-mkdir -p dist/linux/scripts
-mkdir -p dist/windows/scripts
-cp scripts/run dist/linux/scripts/
-cp scripts/run.bat dist/windows/scripts/
+mkdir -p dist/jfx/linux/scripts
+mkdir -p dist/jfx/windows/scripts
+cp scripts/run dist/jfx/linux/scripts/
+cp scripts/run.bat dist/jfx/windows/scripts/
 
 # Copy JavaFX libraries
-cp -r jfx/linux/lib dist/linux/
-cp -r jfx/windows/lib dist/windows/
+cp -r jfx/linux/lib dist/jfx/linux/
+cp -r jfx/windows/lib dist/jfx/windows/
 
 # Create top-level run scripts
-echo '#!/bin/bash' > dist/linux/run
-echo 'cd "$(dirname "$0")/scripts"' >> dist/linux/run
-echo './run' >> dist/linux/run
-chmod +x dist/linux/run
+echo '#!/bin/bash' > dist/jfx/linux/run
+echo 'cd "$(dirname "$0")/scripts"' >> dist/jfx/linux/run
+echo './run' >> dist/jfx/linux/run
+chmod +x dist/jfx/linux/run
 
-echo '@echo off' > dist/windows/run.bat
-echo 'cd /d %~dp0scripts' >> dist/windows/run.bat
-echo 'call run.bat' >> dist/windows/run.bat
+echo '@echo off' > dist/jfx/windows/run.bat
+echo 'cd /d %~dp0scripts' >> dist/jfx/windows/run.bat
+echo 'call run.bat' >> dist/jfx/windows/run.bat
 
 # Create ZIP packages
 cd dist
-zip -r InsTax_Linux.zip linux/*
-zip -r InsTax_Windows.zip windows/*
+zip -r InsTax.zip -i dist/*
 cd ..
 
-echo "Distribution packages created:"
-echo "  dist/InsTax_Linux.zip"
-echo "  dist/InsTax_Windows.zip"
+echo "done"

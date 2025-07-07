@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Navigate to project root
-cd "$(dirname "$0")/.."
-
-# Run the application
-java --module-path "lib" --add-modules javafx.controls,javafx.fxml -jar InsTax!.jar

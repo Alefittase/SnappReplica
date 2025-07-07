@@ -35,7 +35,7 @@ echo 'call run.bat' >> dist/jfx/windows/run.bat
 
 # Create ZIP packages
 cd dist
-zip -r InsTax.zip -i dist/*
+zip -r InsTax.zip jfx/*
 cd ..
 
 echo "done"
